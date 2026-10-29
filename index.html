@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prekių valdymo sistema</title>
+<link rel="stylesheet" href="style.css">
+<style>
+</style>
+</head>
+    <body>
+    <div class="container">
+        <h1>Prekių valdymo sistema</h1>
+        <p style="text-align:center">Vanilla JavaScript and LocalStorage CRUD project</p>
+
+        <div class="layout">
+
+        <section class="panel">
+            <h2 id="formTitle">Prekės duomenys</h2>
+            <form id="productForm">
+                <label for="id">Produkto kodas (ID)</label>
+                <input id="id" inputmode="numeric" placeholder="Tik skaičiai..." required>
+
+                <label for="name">Produkto pavadinimas</label>
+                <input id="name" placeholder="Pvz., Pienas" required>
+
+                <label for="quantity">Produkto kiekis</label>
+                <input id="quantity" type="number" min="1" step="1"
+                    placeholder="Pvz., 5" required>
+
+                <button type="submit" class="green" id="saveBtn">Įvesti naują</button>
+                <button type="button" class="orange" id="cancelBtn" hidden>Atšaukti</button>
+                <button type="button" class="gray" id="clearFormBtn">Išvalyti laukus</button>
+            </form>
+            <div id="formMsg" class="message" role="status"></div>
+        </section>
+
+        <section class="panel">
+        <h2>Rasti prekę pagal kodą</h2>
+        <form id="searchForm">
+            <label for="searchId">Produkto kodas</label>
+            <input id="searchId" inputmode="numeric" placeholder="Įvesk ID" required>
+            <button type="submit">Ieškoti</button>
+            <button type="button" class="gray" id="clearSearch">Išvalyti paiešką</button>
+        </form>
+        <div id="searchMsg" class="message" role="status"></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Kodas</th><th>Pavadinimas</th><th>Kiekis</th><th>Veiksmas</th></tr></thead>
+                <tbody id="searchTable">
+                <tr><td colspan="4" class="empty">Paieškos rezultatų nėra</td></tr>
+                </tbody>
+            </table>
+        </div>
+        </section>
+
+        <section class="panel full">
+            <h2>Prekių sandėlis</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Produkto kodas</th><th>Produkto pavadinimas</th><th>Kiekis</th><th>Veiksmai</th></tr></thead>
+                    <tbody id="productsTable"></tbody>
+                </table>
+            </div>
+            <p id="productCount"></p>
+        </section>
+
+        <section class="panel full">
+            <h2>Prekių krepšelis</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Produkto kodas</th><th>Produkto pavadinimas</th><th>Kiekis</th><th>Veiksmai</th></tr></thead>
+                    <tbody id="cartTable"></tbody>
+                </table>
+            </div>
+            <button type="button" class="red" id="clearCart">Išvalyti krepšelį</button>
+            <div id="cartMsg" class="message" role="status"></div>
+        </section>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
